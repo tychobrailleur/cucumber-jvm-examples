@@ -2,21 +2,17 @@ package com.weblogism.cucumberjvm.javaexample;
 
 import static org.junit.Assert.assertTrue;
 
-import com.thoughtworks.selenium.DefaultSelenium;
+import com.weblogism.cucumberjvm.javaexample.connectors.WebConnector;
 
-import cucumber.annotation.After;
-import cucumber.annotation.Before;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 
 public class LoadPageStepDef {
-  private DefaultSelenium seleniumClient = new DefaultSelenium("localhost", 4444, "*firefox",
-      "http://localhost:8080");
+  private WebConnector connector;
 
-  @Before
-  public void initSelenium() throws Exception {
-    seleniumClient.start();
+  public LoadPageStepDef(WebConnector connector) {
+    this.connector = connector;
   }
 
   @Given("^I am a user with the splookifying module$")
@@ -25,18 +21,12 @@ public class LoadPageStepDef {
 
   @When("^I load the page$")
   public void I_load_the_page() {
-    seleniumClient.open("/");
-    seleniumClient.waitForPageToLoad("5000");
+    connector.openAndWait("/");
   }
 
   @Then("^I should see a greeting$")
   public void I_should_see_a_greeting() {
-    System.out.println(seleniumClient.getBodyText());
-    assertTrue(seleniumClient.isTextPresent("Hello World"));
+    assertTrue(connector.isTextPresent("Hello World"));
   }
 
-  @After
-  public void destroySelenium() {
-    seleniumClient.stop();
-  }
 }
