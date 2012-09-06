@@ -10,6 +10,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- <cucumber.options>-\-format pretty -\-tags @wip -\-glue classpath:com/weblogism/cucumberjvm/javaexample src/it/resources</cucumber.options> -->
+    <cucumber.options>--format pretty --tags @wip</cucumber.options>
   </properties>
 
   <dependencies>
@@ -42,7 +44,7 @@
       <!--
           Here the profile is activated by default so that 
           the example can be executed directly, but it probably
-          would not in “real life.”
+          would not be in “real life.”
       -->
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -102,6 +104,11 @@
                 </goals>
               </execution>
             </executions>
+	    <configuration>
+	      <systemPropertyVariables>
+	    	<cucumber.options>${cucumber.options}</cucumber.options>
+	      </systemPropertyVariables>
+	    </configuration>
           </plugin>
           <plugin>
             <groupId>org.mortbay.jetty</groupId>
@@ -131,29 +138,6 @@
               </execution>
             </executions>
           </plugin>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>selenium-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>start-selenium-server</id>
-                <phase>pre-integration-test</phase>
-                <goals>
-                  <goal>start-server</goal>
-                </goals>
-                <configuration>
-                  <background>true</background>
-                </configuration>
-              </execution>
-              <execution>
-                <id>stop-selenium-server</id>
-                <phase>post-integration-test</phase>
-                <goals>
-                  <goal>stop-server</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
         </plugins>
       </build>
 
@@ -161,25 +145,31 @@
         <dependency>
           <groupId>info.cukes</groupId>
           <artifactId>cucumber-picocontainer</artifactId>
-          <version>1.0.4</version>
+          <version>1.0.14</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>info.cukes</groupId>
+          <artifactId>cucumber-core</artifactId>
+          <version>1.0.15-SNAPSHOT</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>info.cukes</groupId>
           <artifactId>cucumber-junit</artifactId>
-          <version>1.0.4</version>
+          <version>1.0.15-SNAPSHOT</version>
           <scope>test</scope>
+          <exclusions>
+              <exclusion>
+                  <groupId>info.cukes</groupId>
+                  <artifactId>cucumber-core</artifactId>
+              </exclusion>
+          </exclusions>
         </dependency>
         <dependency>
           <groupId>org.seleniumhq.selenium</groupId>
           <artifactId>selenium-java</artifactId>
-          <version>2.21.0</version>
-          <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-server</artifactId>
-          <version>2.21.0</version>
+          <version>2.25.0</version>
           <scope>test</scope>
         </dependency>
         <dependency>

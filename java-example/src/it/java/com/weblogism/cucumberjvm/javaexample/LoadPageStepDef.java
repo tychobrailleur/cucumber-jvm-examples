@@ -21,7 +21,7 @@ public class LoadPageStepDef {
 
   @When("^I load the page$")
   public void I_load_the_page() {
-    connector.openAndWait("/");
+    connector.openAndWait("http://localhost:8080/");
   }
 
   @Then("^I should see a greeting$")
