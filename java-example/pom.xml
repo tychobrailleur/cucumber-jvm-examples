@@ -4,13 +4,12 @@
 
   <groupId>com.weblogism.cucumberjvm</groupId>
   <artifactId>java-example</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Cucumber-jvm Java Example</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- <cucumber.options>-\-format pretty -\-tags @wip -\-glue classpath:com/weblogism/cucumberjvm/javaexample src/it/resources</cucumber.options> -->
     <cucumber.options>--format pretty --tags @wip</cucumber.options>
   </properties>
 
@@ -145,8 +144,14 @@
         <dependency>
           <groupId>info.cukes</groupId>
           <artifactId>cucumber-picocontainer</artifactId>
-          <version>1.0.14</version>
+          <version>1.0.15-SNAPSHOT</version>
           <scope>test</scope>
+          <exclusions>
+	    <exclusion>
+	      <groupId>info.cukes</groupId>
+	      <artifactId>cucumber-core</artifactId>
+	    </exclusion>
+          </exclusions>
         </dependency>
         <dependency>
           <groupId>info.cukes</groupId>
@@ -160,10 +165,10 @@
           <version>1.0.15-SNAPSHOT</version>
           <scope>test</scope>
           <exclusions>
-              <exclusion>
-                  <groupId>info.cukes</groupId>
-                  <artifactId>cucumber-core</artifactId>
-              </exclusion>
+	    <exclusion>
+	      <groupId>info.cukes</groupId>
+	      <artifactId>cucumber-core</artifactId>
+	    </exclusion>
           </exclusions>
         </dependency>
         <dependency>
