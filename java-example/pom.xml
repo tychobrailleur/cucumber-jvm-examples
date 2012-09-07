@@ -49,6 +49,10 @@
         <activeByDefault>true</activeByDefault>
       </activation>
 
+      <properties>
+	<cucumber.options>--format html:target/cucumber --tags @wip,@foo</cucumber.options>	
+      </properties>
+
       <build>
         <plugins>
           <plugin>
