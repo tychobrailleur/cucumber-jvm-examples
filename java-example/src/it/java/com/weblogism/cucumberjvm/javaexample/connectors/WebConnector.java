@@ -2,8 +2,8 @@ package com.weblogism.cucumberjvm.javaexample.connectors;
 
 import com.thoughtworks.selenium.DefaultSelenium;
 
-import cucumber.annotation.After;
-import cucumber.annotation.Before;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 
 public class WebConnector {
   private final static String DEFAULT_TIMEOUT = "2000";
