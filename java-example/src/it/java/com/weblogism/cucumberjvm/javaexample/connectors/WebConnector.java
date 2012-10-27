@@ -1,36 +1,43 @@
 package com.weblogism.cucumberjvm.javaexample.connectors;
 
-import com.thoughtworks.selenium.DefaultSelenium;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import java.util.concurrent.TimeUnit;
+
 
 public class WebConnector {
-  private final static String DEFAULT_TIMEOUT = "2000";
-  private DefaultSelenium seleniumClient = new DefaultSelenium("localhost", 4444, "*firefox",
-      "http://localhost:8080");
+    private final static long DEFAULT_TIMEOUT = 2000;
+    WebDriver driver = new FirefoxDriver();
+    
+    @Before
+    public void initSelenium() throws Exception {
+    }
 
-  @Before
-  public void initSelenium() throws Exception {
-    seleniumClient.start();
-  }
+    @After
+    public void destroySelenium() {
+	driver.close();
+    }
+    
+    public void clickAndWait(String selector) {
+	WebElement element = driver.findElement(By.id(selector));
+	element.click();
+	driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
+						  TimeUnit.MILLISECONDS);
+    }
 
-  @After
-  public void destroySelenium() {
-    seleniumClient.stop();
-  }
-
-  public void clickAndWait(String selector) {
-    seleniumClient.click(selector);
-    seleniumClient.waitForPageToLoad(DEFAULT_TIMEOUT);
-  }
-
-  public void openAndWait(String location) {
-    seleniumClient.open(location);
-    seleniumClient.waitForPageToLoad(DEFAULT_TIMEOUT);
-  }
-
-  public boolean isTextPresent(String text) {
-    return seleniumClient.isTextPresent(text);
-  }
+    public void openAndWait(String location) {
+	driver.get(location);
+	// driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
+	// 					  TimeUnit.MILLISECONDS);
+    }
+    
+    public boolean isTextPresent(String text) {
+	WebElement content = driver.findElement(By.tagName("body")); 
+	return content.getText().contains(text);
+    }
 }
