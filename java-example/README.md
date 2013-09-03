@@ -1,5 +1,7 @@
-To get cucumber-jvm 1.1.3 to work with JSON report, rebuild cucumber-jvm with 
-the latest gherkin.
+Updated to cucumber 1.1.4.
 
-See http://www.weblogism.com/item/341/cucumber-jvm-113-issue-with-json-formatter 
-for more details.
+To execute integration tests:
+
+```
+mvn integration-test
+```
