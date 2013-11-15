@@ -8,11 +8,24 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
 public class LoadPageStepDef {
   private WebConnector connector;
 
   public LoadPageStepDef(WebConnector connector) {
     this.connector = connector;
+  }
+
+  @Before
+  public void beforeScenario() {
+    System.out.println(" *** Before");
+  }
+
+  @After
+  public void afterScenario() {
+    System.out.println(" *** After");
   }
 
   @Given("^I am a user with the splookifying module$")

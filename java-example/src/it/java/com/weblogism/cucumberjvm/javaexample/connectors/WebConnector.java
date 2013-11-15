@@ -20,24 +20,24 @@ public class WebConnector {
 
     @After
     public void destroySelenium() {
-	driver.close();
+        driver.close();
     }
     
     public void clickAndWait(String selector) {
-	WebElement element = driver.findElement(By.id(selector));
-	element.click();
-	driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
-						  TimeUnit.MILLISECONDS);
+        WebElement element = driver.findElement(By.id(selector));
+        element.click();
+        driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
+                                                  TimeUnit.MILLISECONDS);
     }
 
     public void openAndWait(String location) {
-	driver.get(location);
-	// driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
-	// 					  TimeUnit.MILLISECONDS);
+        driver.get(location);
+        // driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, 
+        // 					  TimeUnit.MILLISECONDS);
     }
     
     public boolean isTextPresent(String text) {
-	WebElement content = driver.findElement(By.tagName("body")); 
-	return content.getText().contains(text);
+        WebElement content = driver.findElement(By.tagName("body")); 
+        return content.getText().contains(text);
     }
 }
