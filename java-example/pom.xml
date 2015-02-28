@@ -41,7 +41,7 @@
       <id>integration-tests</id>
 
       <!--
-          Here the profile is activated by default so that 
+          Here the profile is activated by default so that
           the example can be executed directly, but it probably
           would not be in “real life.”
       -->
@@ -50,7 +50,7 @@
       </activation>
 
       <properties>
-        <cucumber.options>--plugin html:target/cucumber --tags @wip,@foo</cucumber.options>     
+        <cucumber.options>--plugin html:target/cucumber --tags @wip,@foo</cucumber.options>
       </properties>
 
       <build>
@@ -116,17 +116,17 @@
           <plugin>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-maven-plugin</artifactId>
-            <version>9.1.0.v20131115</version>
+            <version>9.3.0.M1</version>
             <configuration>
               <stopKey>Youllneverwalkalone</stopKey>
-              <stopPort>9995</stopPort> 
+              <stopPort>9995</stopPort>
             </configuration>
             <executions>
               <execution>
                 <id>start-jetty</id>
                 <phase>pre-integration-test</phase>
                 <goals>
-                  <goal>run</goal>
+                  <goal>deploy-war</goal>
                 </goals>
                 <configuration>
                   <daemon>true</daemon>
