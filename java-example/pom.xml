@@ -114,6 +114,25 @@
             </configuration>
           </plugin>
           <plugin>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>0.0.8</version>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <configuration>
+                  <projectName>com.weblogism.cucumberjvm</projectName>
+                  <outputDirectory>target/cucumber-report-html</outputDirectory>
+                  <cucumberOutput>target/cucumber-report/cucumber.json</cucumberOutput>
+                  <enableFlashCharts>true</enableFlashCharts>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-maven-plugin</artifactId>
             <version>9.3.0.M1</version>
