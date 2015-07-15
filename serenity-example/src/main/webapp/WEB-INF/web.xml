@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+  <filter>
+    <filter-name>SparkFilter</filter-name>
+    <filter-class>spark.servlet.SparkFilter</filter-class>
+    <init-param>
+      <param-name>applicationClass</param-name>
+      <param-value>com.weblogism.cucumberjvm.serenityexample.HelloWorld</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>SparkFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+</web-app>

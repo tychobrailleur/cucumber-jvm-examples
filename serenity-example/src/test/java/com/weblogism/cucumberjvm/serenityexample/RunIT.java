@@ -7,5 +7,5 @@ import cucumber.api.CucumberOptions;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = "json:target/report.json")
-public class RunTest {
+public class RunIT {
 }
