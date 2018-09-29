@@ -1,0 +1,7 @@
+Updated to cucumber-jvm 4.0.0.
+
+To execute integration tests:
+
+#+BEGIN_SRC bash
+mvn integration-test
+#+END_SRC
