@@ -5,6 +5,8 @@ import com.weblogism.cucumberjvm.groovyexample.connectors.WebConnector
 this.metaClass.mixin(cucumber.api.groovy.Hooks)
 this.metaClass.mixin(cucumber.api.groovy.EN)
 
+def connector
+
 Before() {
     connector = new WebConnector()
 }

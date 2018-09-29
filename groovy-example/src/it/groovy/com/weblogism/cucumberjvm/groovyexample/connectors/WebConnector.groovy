@@ -1,19 +1,17 @@
 package com.weblogism.cucumberjvm.groovyexample.connectors
 
-import cucumber.api.java.After
-import cucumber.api.java.Before
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.chrome.ChromeDriver
 
 import java.util.concurrent.TimeUnit
 
 class WebConnector {
     private final static long DEFAULT_TIMEOUT = 2000
-    WebDriver driver = new FirefoxDriver()
+    WebDriver driver = new ChromeDriver()
 
-    public void clickAndWait(String selector) {
+    void clickAndWait(String selector) {
         WebElement element = driver.findElement(By.id(selector))
         element.click()
         driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
@@ -27,9 +25,9 @@ class WebConnector {
         driver.close()
     }
 
-    def boolean isTextPresent(String text) {
+    boolean isTextPresent(String text) {
         WebElement content = driver.findElement(By.tagName("body"))
-        return content.getText().contains(text);
+        return content.getText().contains(text)
     }
 
 }
