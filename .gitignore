@@ -2,3 +2,7 @@
 .project
 .settings
 target/
+.idea/
+nb-configuration.xml
+
+.DS_Store
