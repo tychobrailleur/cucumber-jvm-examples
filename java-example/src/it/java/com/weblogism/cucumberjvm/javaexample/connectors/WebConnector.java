@@ -1,12 +1,12 @@
 package com.weblogism.cucumberjvm.javaexample.connectors;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import java.util.concurrent.TimeUnit;
 
 

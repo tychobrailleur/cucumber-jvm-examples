@@ -1,9 +1,8 @@
 package com.weblogism.cucumberjvm.serenityexample;
 
-import org.junit.runner.RunWith;
-
+import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
-import cucumber.api.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = "json:target/report.json")
