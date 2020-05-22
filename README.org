@@ -1,0 +1,15 @@
+* cucumber-jvm-examples
+
+Cucumber-jvm 5 examples with Maven
+
+To run:
+
+#+BEGIN_EXAMPLE
+  mvn verify
+#+END_EXAMPLE
+
+
+- =java-example= :: Java example using cucumber-jvm 5.6.0
+- =groovy-example= :: Groovy example using cucumber-jvm 4.7.1 (which
+  seems to be the latest version of support cucumber-groovy)
+- =serenity-example= :: Java example using serenity-bdd 2.2.5.
